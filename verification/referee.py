@@ -50,7 +50,7 @@ class CheckiORefereeGolf(CheckiOReferee):
 		codestring = codestring.replace("\r","\n")
 		codestring = codestring.rstrip()
 		try:
-			return len( marshal.dumps(compile(codestring,'','exec')) )
+			return len( marshal.dumps(compile(codestring,'','exec',optimize=1)) )
 		except SyntaxError as detail:
 			import traceback
 			lines = traceback.format_exception_only(SyntaxError, detail)

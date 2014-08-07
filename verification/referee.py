@@ -36,22 +36,25 @@ from tests import TESTS
 
 import marshal
 
+if isinstance(__builtins__,dict):
+	compile=__builtins__['compile']
+else:
+	compile=__builtins__.compile
+
 class CheckiORefereeGolf(CheckiOReferee):
 	def __init__(self, max_length, **kwargs):
 		self.max_length = max_length
 		super().__init__(**kwargs)
-	def check_code(codestring):
+	def check_code(self, codestring):
 		codestring = codestring.replace("\r\n","\n")
 		codestring = codestring.replace("\r","\n")
 		codestring = codestring.rstrip()
 		try:
-			return len( marshal.dumps(__builtins__.compile(codestring,'','exec')) )
+			return len( marshal.dumps(compile(codestring,'','exec')) )
 		except SyntaxError as detail:
 			import traceback
 			lines = traceback.format_exception_only(SyntaxError, detail)
-			for line in lines:
-				print(line.replace('File "<string>"',''))
-			return None
+			return "\n".join(lines)
 	def check_current_test(self, data):
 		if self.inspector:
 			inspector_result, inspector_result_addon = self.inspector(self.code, self.runner)
@@ -62,15 +65,11 @@ class CheckiORefereeGolf(CheckiOReferee):
 				api.request_write_ext(self.current_test)
 				return api.fail(0, inspector_result_addon)
 		user_result = data['result']
-
 		check_result = self.check_user_answer(user_result)
 		self.current_test["result"], self.current_test["result_addon"] = check_result
-
 		api.request_write_ext(self.current_test)
-
 		if not self.current_test["result"]:
 			return api.fail(self.current_step, self.get_current_test_fullname())
-
 		if self.next_step():
 			self.test_current_step()
 		else:
@@ -78,9 +77,15 @@ class CheckiORefereeGolf(CheckiOReferee):
 				self.restart_env()
 			else:
 				# all tests passed. now check code size.
-				code_len = check_code(self.code)
+				code_len = self.check_code(self.code)
+				if isinstance(code_len,str):
+					message = 'Something wrong: '+code_len
+					self.current_test["inspector_result_addon"] = message
+					self.current_test["inspector_fail"] = True
+					api.request_write_ext(self.current_test)
+					return api.fail(0, message)
 				if code_len >= self.max_length:
-					message = "Your code is correct, but this is too long ({}) for any points".format(code_len)
+					message = "Your code is correct, but this code compiles too long ({}) for any points".format(code_len)
 					self.current_test["inspector_result_addon"] = message
 					self.current_test["inspector_fail"] = True
 					api.request_write_ext(self.current_test)
@@ -92,10 +97,10 @@ api.add_listener(
 	ON_CONNECT,
 	CheckiORefereeGolf(
 		tests=TESTS,
-		max_length=1200,
+		max_length=1000,
 		cover_code={
 			'python-27': cover_codes.unwrap_args,
 			'python-3': cover_codes.unwrap_args
 		},
-		function_name="quine",
+		function_name="fibgolf",
 	).on_ready)

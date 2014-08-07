@@ -91,6 +91,6 @@ import random
 
 category=['fibonacci','tribonacci','lucas','jacobsthal','pell','perrin','padovan']
 for i,e in enumerate(category):
-	TESTS[str(i)+'. '+e]=[]
-	for n in random.sample(range(10,500),10):
-		TESTS[str(i)+'. '+e].append({input:[e,n],answer:fibgolf_basic(e,n)})
+	TESTS[str(i+1)+'. '+e]=[]
+	for n in random.sample(range(10,400),8):
+		TESTS[str(i+1)+'. '+e].append({"input":[e,n],"answer":fibgolf_basic(e,n)})

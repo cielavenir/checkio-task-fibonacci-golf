@@ -14,15 +14,82 @@
 }
 
 .animation-success {
-    background: linear-gradient(to bottom, #ffac54 0%,#ff8d2c 100%);
+    background: #EBEDED;
 }
 
-.animation-success div {
+.animation-success div.result {
     background-repeat: no-repeat;
-    height: 60px;
-    width: 390px;
-    background-image: url("http://www.checkio.org/static/imgv3/task_solved.png");
+    height: 200px;
+    width: 400px;
+    margin: auto;
+
 }
+.animation-success div.result.norm-sign {
+    background-image: url("http://checkio.s3.amazonaws.com/files/tasks/sucess_slide_norm.png");
+}
+
+.animation-success div.result.win-sign {
+    background-image: url("http://checkio.s3.amazonaws.com/files/tasks/sucess_slide_win.png");
+}
+
+
+
+
+.animation-success div.result div {
+    position: relative;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+.animation-success div.result.norm-sign div {
+    top: 58px;
+    left: 25px;
+
+}
+
+.animation-success div.result.win-sign div {
+    top: 33px;
+    left: 25px;
+    width: 200px;
+    font-size: 25px;
+}
+
+.animation-success div.result.norm-sign .numbers {
+    position: relative;
+    top: 80px;
+    left: 0px;
+    color: #55bbee;
+}
+
+.animation-success div.result.win-sign .numbers {
+    position: relative;
+    top: 53px;
+    left: 17px;
+    color: #55bbee;
+}
+
+
+
+.animation-success div.result .numbers th {
+    width: 80px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.animation-success div.result .numbers td {
+    font-size: 10px;
+    text-align: center;
+    color: #003b70;
+}
+
+.animation-success div.result .numbers tr th span.ends {
+    font-size: 15px;
+}
+
+.animation-success div.result * {
+    font-family: Roboto, Arial, 'Open Sans', sans-serif;
+}
+
 
 .center-exp {
     margin-left:auto;

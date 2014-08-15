@@ -1,34 +1,80 @@
 <p>
-    Input: a string (sequence type) and an integer (n).<br>
+    <a href="http://en.wikipedia.org/wiki/Fibonacci_numbers">The Fibonacci numbers</a> or
+    Fibonacci sequence are the numbers in the following integer sequence:<br>
+    0, 1, 1, 2, 3, 5, 8, 13, 21...<br>
+    But it's not only one interesting integer sequence.
+    There are many various sequences like the Fibonacci numbers,
+    where each elements calculated with previous elements.
+    Let's look and use several of them.
 </p>
 
 <p>
-    Output: an integer, f(n).<br>
-    fibonacci: f(0)=0,f(1)=1,f(n)=f(n-1)+f(n-2)<br>
-    tribonacci: f(0)=0,f(1)=1,f(2)=1,f(n)=f(n-1)+f(n-2)+f(n-3)<br>
-    lucas: f(0)=2,f(1)=1,f(n)=f(n-1)+f(n-2)<br>
-    jacobsthal: f(0)=0,f(1)=1,f(n)=f(n-1)+2*f(n-2)<br>
-    pell: f(0)=0,f(1)=1,f(n)=2*f(n-1)+f(n-2)<br>
-    perrin: f(0)=3,f(1)=0,f(2)=2,f(n)=f(n-2)+f(n-3)<br>
-    padovan: f(0)=0,f(1)=1,f(2)=1,f(n)=f(n-2)+f(n-3)<br>
+    Here are described several integer sequence which you should implement:
+
+</p>
+<ul>
+    <li>
+        <a href="http://oeis.org/A000045">fibonacci</a>:
+        <pre>f(0)=0, f(1)=1, f(n)=f(n-1)+f(n-2)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A000073">tribonacci</a>:
+        <pre>f(0)=0, f(1)=1, f(2)=1, f(n)=f(n-1)+f(n-2)+f(n-3)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A000032">lucas</a>:
+        <pre>f(0)=2, f(1)=1, f(n)=f(n-1)+f(n-2)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A001045">jacobsthal</a>:
+        <pre>f(0)=0, f(1)=1, f(n)=f(n-1)+2*f(n-2)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A000129">pell</a>:
+        <pre>f(0)=0, f(1)=1, f(n)=2*f(n-1)+f(n-2)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A001608">perrin</a>:
+        <pre>f(0)=3, f(1)=0, f(2)=2, f(n)=f(n-2)+f(n-3)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A000931">padovan</a>:
+        <pre>f(0)=0, f(1)=1, f(2)=1, f(n)=f(n-2)+f(n-3)</pre>
+    </li>
+</ul>
+<p>
+    You are given a name of sequence and a number "n".
+    You should find the <strong>n-th</strong> element for the given sequence.
 </p>
 
 <p>
-    Judge rule:<br>
-    This problem is scored using "compiled size".<br>
-    Your code shouldn't exceed 1000bytes in compiled form.<br>
-    Please see referee.py for detail.<br>
-    <br>
-    Use <a href="https://github.com/cielavenir/checkio-task-fibonacci-golf/blob/master/local_checker.py">https://github.com/cielavenir/checkio-task-fibonacci-golf/blob/master/local_checker.py</a>
-    to know the compiled size locally.<br>
+    In this mission the main goal to make your code as short as possible.
+    But not a code as is it. We will check a length of the compiled code.
+    The shorter your compiled code, the more points you earn.
+    You can use <a href="https://github.com/cielavenir/checkio-task-fibonacci-golf/blob/master/local_checker.py">the
+    local checker</a>
+    to know the compiled size locally.
+    Your score for this mission is dynamic and directly related to the length of your code.
+    For reference, scoring is based on the number of characters used.
+    1000 bytes is the maximum allowable and it will earn you zero points.
+    For each byte less than 1000, you earn 1 point. For example for 300 byte long code earns you 700 points.
+</p>
+<p>
+    <strong>Input:</strong> Two arguments. A name of a sequence as a string and a number "n" as a positive integer.
 </p>
 
 <p>
-    How it is used:<br>
+    <strong>Output:</strong> The n-th element of the sequence as an integer.<br>
+
+</p>
+
+
+<p>
+    <strong>How it is used:</strong>
     In this mission, you can learn how to code in DRY (don't repeat yourself) way.
 </p>
 
 <p>
-    Preconditions:<br>
-    10<=n<400
+    <strong>Preconditions:</strong>
+    10 &le; n &lt; 400
 </p>

@@ -36,11 +36,6 @@ from tests import TESTS
 
 import marshal
 
-if isinstance(__builtins__, dict):
-    compile = __builtins__['compile']
-else:
-    compile = __builtins__.compile
-
 
 class CheckiORefereeGolf(CheckiOReferee):
     def __init__(self, max_length, **kwargs):
@@ -81,7 +76,7 @@ class CheckiORefereeGolf(CheckiOReferee):
                     api.request_write_ext(self.current_test)
                     return api.fail(0, message)
                 if code_len >= self.max_length:
-                    message = "Your code is correct, but this code compiles too long ({}) for any points".format(
+                    message = "Your code is correct, but this compiled code is too long ({}) for any points".format(
                         code_len)
                     self.current_test["inspector_result_addon"] = message
                     self.current_test["inspector_fail"] = True

@@ -96,4 +96,5 @@ api.add_listener(
             'python-3': cover_codes.unwrap_args
         },
         function_name="fibgolf",
+		add_close_builtins=["eval","exec"],
     ).on_ready)

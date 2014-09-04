@@ -82,7 +82,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             var fname = 'fibgolf';
 
             var checkioInput = data.in;
-            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput[0]) + ", " + JSON.stringify(checkioInput[1]) + '"])';
+            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput[0]) + ", " + JSON.stringify(checkioInput[1]) + ')';
 
             var failError = function (dError) {
                 $content.find('.call').html(checkioInputStr);

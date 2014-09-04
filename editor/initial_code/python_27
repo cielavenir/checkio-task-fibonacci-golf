@@ -3,10 +3,11 @@ def fibgolf(type, num):
 
 
 if __name__ == '__main__':
-    assert fibgolf('fibonacci', 10) == 55
-    assert fibgolf('tribonacci', 10) == 149
-    assert fibgolf('lucas', 10) == 123
-    assert fibgolf('jacobsthal', 10) == 341
-    assert fibgolf('pell', 10) == 2378
-    assert fibgolf('perrin', 10) == 17
-    assert fibgolf('padovan', 10) == 9
+    assert fibgolf(u'fibonacci', 10) == 55
+    assert fibgolf(u'tribonacci', 10) == 149
+    assert fibgolf(u'lucas', 10) == 123
+    assert fibgolf(u'jacobsthal', 10) == 341
+    assert fibgolf(u'pell', 10) == 2378
+    assert fibgolf(u'perrin', 10) == 17
+    assert fibgolf(u'padovan', 10) == 9
+

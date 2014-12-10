@@ -1,0 +1,102 @@
+<div class="story">
+    <p>
+        The <a href="http://oeis.org/">On-Line Encyclopedia of Integer Sequences</a> (OEIS), also cited simply as
+        Sloane's, is an online database of
+        integer sequences. It was created and maintained by Neil Sloane while a researcher at AT&amp;T Labs. Foreseeing his
+        retirement from AT&amp;T Labs in 2012 and the need for an independent foundation, Sloane agreed to transfer the
+        intellectual property and hosting of the OEIS to the OEIS Foundation in October 2009. Sloane continues to be
+        involved in the OEIS in his role as President of the OEIS Foundation.<br>
+        -- Wikipedia.
+    </p>
+
+    <p>
+        To celebrate the launching of The OEIS Foundation Inc,
+        Tony Noe has made an 8.5-minute movie showing graphs of the first 1000 terms of 1000 sequences,
+        with soundtrack from Recaman's sequence A005132.<br>
+        <a href="http://www.youtube.com/watch?v=LCWglXljevY">The OEIS Movie</a> on Youtube.<br>
+        -- OEIS, Welcome page.
+
+    </p>
+</div>
+
+<p>
+    <a href="http://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0">フィボナッチ数</a> またはフィボナッチ数列とは、次のような整数の数列です:<br>
+    0, 1, 1, 2, 3, 5, 8, 13, 21...<br>
+    しかし、これだけが面白い整数列ではありません。他にもフィボナッチ数列に似た様々な数列があります。共通するのは、それぞれの要素が前の要素を用いて計算されることです。<br>
+    そのいくつかを見てみましょう。
+</p>
+
+<p>
+    以下に挙げる整数列を実装して下さい:
+
+</p>
+<ul>
+    <li>
+        <a href="http://oeis.org/A000045">fibonacci</a>:
+        <pre>f(0)=0, f(1)=1, f(n)=f(n-1)+f(n-2)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A000073">tribonacci</a>:
+        <pre>f(0)=0, f(1)=1, f(2)=1, f(n)=f(n-1)+f(n-2)+f(n-3)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A000032">lucas</a>:
+        <pre>f(0)=2, f(1)=1, f(n)=f(n-1)+f(n-2)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A001045">jacobsthal</a>:
+        <pre>f(0)=0, f(1)=1, f(n)=f(n-1)+2*f(n-2)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A000129">pell</a>:
+        <pre>f(0)=0, f(1)=1, f(n)=2*f(n-1)+f(n-2)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A001608">perrin</a>:
+        <pre>f(0)=3, f(1)=0, f(2)=2, f(n)=f(n-2)+f(n-3)</pre>
+    </li>
+    <li>
+        <a href="http://oeis.org/A000931">padovan</a>:
+        <pre>f(0)=0, f(1)=1, f(2)=1, f(n)=f(n-2)+f(n-3)</pre>
+    </li>
+</ul>
+<p>
+    数列名と数nが与えられるので、当該数列の<strong>n番目</strong>の要素を求めて下さい。
+</p>
+
+<p>
+    この問題の主たる目的はコードをできるだけ短くすることです。<br>
+    システムは<strong>コンパイル後のバイトコードサイズ</strong>を確認し、得点を割り当てます。<br>
+    バイトコードサイズが短いほど、より多くの得点が得られます。<br>
+    この<a href="https://github.com/cielavenir/checkio-task-fibonacci-golf/blob/master/local_checker.py">ローカルチェッカー</a>を用いて、バイトコードサイズを手元で確認することができます。<br>
+    この問題の得点は動的であり、バイトコードサイズと直接つながっています。<br>
+    上限は1000バイトであり、この場合得点は0です。<br>
+    1000バイトを1バイト下回るごとに、1点を得ます。例えば300バイトのコードであれば得点は700点です。
+</p>
+<p>
+    <strong>入力:</strong> 2つの引数: 数列名(文字列)と数n(正の整数)
+</p>
+
+<p>
+    <strong>出力:</strong> 数列のn番目の要素(整数)<br>
+
+</p>
+
+
+<p>
+    <strong>どのように使われるか:</strong>
+    ソフトウェア開発におけるDon’t Repeat Yourself (DRY)原則の後ろにある発想を知ることができます。<br>
+    この原則は次のようなものです: "システムにおいて、知識のそれぞれの部分は、単一のあいまいでない信頼できる表現をされなければならない"<br>
+    この原則に則ることで、コードを変更するときに結果を一様に予測可能にできます。<br>
+    この原則は“Write Everything Twice”あるいは“We Enjoy Typing” (WET)と対比されます。
+</p>
+
+<p>
+    <strong>制約:</strong>
+    10 &le; n &lt; 400
+</p>
+
+<p>
+    <strong>制限ビルトイン関数:</strong>
+    eval, exec
+</p>
